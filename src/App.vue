@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input v-model="code"/>
+    <Root/>
   </div>
 </template>
 
 <script>
-import HelloWorld from 'components/HelloWorld.vue'
+import Root from 'components/Root.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Root
+  },
+  provide(){
+    return {
+      getCode: () => this.code
+    }
+  },
+  data(){
+    return {
+      code: '1'
+    }
   }
 }
 </script>
