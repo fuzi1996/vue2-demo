@@ -3,13 +3,21 @@
   <el-form-item label="input1" prop="input1">
     <el-input v-model="ruleForm.input1"></el-input>
   </el-form-item>
-  <el-form-item label="input2" prop="input2">
-    <el-input v-model="ruleForm.input2"></el-input>
-  </el-form-item>
-  <el-form-item label="input3" prop="input3">
-    <el-input v-model="ruleForm.input3"></el-input>
-  </el-form-item>
+  <template v-if="show">
+    <el-form-item label="input2" prop="input2">
+      <el-input v-model="ruleForm.input2"></el-input>
+    </el-form-item>
+    <el-form-item label="input3" prop="input3">
+      <el-input v-model="ruleForm.input3"></el-input>
+    </el-form-item>
+  </template>
+  <!-- <template v-if="show">
+    <el-form-item label="input2" prop="input2">
+      <el-input v-model="ruleForm.input2"></el-input>
+    </el-form-item>
+  </template> -->
   <el-form-item>
+    <el-button @click="show = !show">显隐</el-button>
     <el-button type="primary" @click="submitForm('ruleForm')">触发校验</el-button>
     <el-button @click="resetForm('ruleForm')">重置</el-button>
   </el-form-item>
@@ -21,6 +29,7 @@ export default {
   name: 'Root',
   data() {
     return {
+      show: false,
       ruleForm: {
         input1: '',
         input2: '',
