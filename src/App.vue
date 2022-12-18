@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <input v-model="code"/>
     <Root/>
   </div>
 </template>
